@@ -9,7 +9,7 @@ import { CommandType } from "../types/interfaces";
 import client from "../../index";
 import error from "./error";
 
-export default async function checkCmdCooldown(
+export default async function (
   interaction: CommandInteraction | Message,
   command: CommandType,
   prefix: string | null = null,

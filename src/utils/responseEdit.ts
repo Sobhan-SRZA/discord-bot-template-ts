@@ -1,16 +1,13 @@
 import {
-  CommandInteraction,
-  Message
+  Message,
+  MessageEditOptions
 } from "discord.js";
+import repeatAction from "./repeatAction";
 import error from "./error";
 
-export default function (interaction: CommandInteraction | Message) {
+export default async function (message: Message, data: MessageEditOptions) {
   try {
-    if (interaction instanceof CommandInteraction)
-      return interaction.user;
-
-    else
-      return interaction.author;
+      return await repeatAction(async () => await message.edit(data));
   } catch (e: any) {
     error(e);
   }

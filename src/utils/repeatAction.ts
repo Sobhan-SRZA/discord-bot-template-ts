@@ -1,6 +1,6 @@
 import error from "./error";
 
-export default async function repeatAction<T>(action: () => Promise<T>, maxAttempts = 3): Promise<T | undefined> {
+export default async function <T>(action: () => Promise<T>, maxAttempts = 3): Promise<T | undefined> {
   let attempts = 0;
 
   while (attempts < maxAttempts) {

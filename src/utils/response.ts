@@ -8,7 +8,7 @@ import { Respondable } from "../types/types";
 import repeatAction from "./repeatAction";
 import error from "./error";
 
-export default async function response(interaction: Respondable, data: InteractionReplyOptions | MessageReplyOptions) {
+export default async function (interaction: Respondable, data: InteractionReplyOptions | MessageReplyOptions) {
   try {
     if (isBaseInteraction(interaction)) {
       if ("editReply" in interaction)

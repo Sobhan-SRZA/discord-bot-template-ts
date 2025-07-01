@@ -11,7 +11,7 @@ import GetInvite from "./GetInvite";
 import config from "../../config";
 import error from "./error";
 
-export default async function SendGuildAlert({
+export default async function ({
   client,
   guild,
   guildChannel = null,

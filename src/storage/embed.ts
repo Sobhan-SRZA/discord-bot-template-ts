@@ -1,5 +1,5 @@
 const EmbedData = {
-  update: "in building",
+  update: "no updates",
   footer: {
     footerIcon: "https://cdn.discordapp.com/avatars/865630940361785345/d0c85fbbdb0ee9f105336a041904e7d8.png?size=4096",
     footerText: "©️ Persian Caesar"

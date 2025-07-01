@@ -3,7 +3,7 @@ import { Message } from "discord.js";
 import repeatAction from "./repeatAction";
 import error from "./error";
 
-export default async function responseDelete(
+export default async function (
   interaction: Respondable,
   message?: Message | null
 ) {

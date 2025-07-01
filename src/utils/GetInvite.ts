@@ -4,7 +4,7 @@ import {
   TextChannel
 } from "discord.js";
 
-export default async function GetInvite(guild: Guild) {
+export default async function (guild: Guild) {
   const inviteData = {
     reason: "Invite the developers",
     maxAge: 0

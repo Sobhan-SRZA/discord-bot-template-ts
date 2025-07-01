@@ -10,7 +10,7 @@ import getAuthor from "../../utils/getAuthor";
 import response from "../../utils/response";
 import error from "../../utils/error";
 
-const command: CommandType = {
+export default {
   data: {
     name: "help",
     description: "List of the all commands.",
@@ -94,8 +94,7 @@ const command: CommandType = {
       error(e)
     }
   }
-};
-export default command;
+} as CommandType;
 /**
  * @copyright
  * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA

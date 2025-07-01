@@ -13,7 +13,7 @@ import repeatAction from "./repeatAction";
 import EmbedData from "../storage/embed";
 import error from "./error";
 
-export default async function responseError(
+export default async function (
   interaction: Respondable,
   log?: string,
   data?: InteractionReplyOptions | MessageReplyOptions,

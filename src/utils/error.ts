@@ -16,7 +16,7 @@ interface ErrorType {
   status?: string;
 }
 
-export default function error(error: ErrorType | string) {
+export default function (error: ErrorType | string) {
   try {
     if (typeof error === "string")
       error = { message: error };

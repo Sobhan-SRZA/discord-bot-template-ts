@@ -53,8 +53,8 @@ export default async (client: DiscordClient) => {
         return;
 
       const
-        Presence = (presence || ["online"]),
-        ActivityText = (activity),
+        Presence = presence ? presence.random() : undefined,
+        ActivityText = activity.random(),
         TypeText = String((type || ["Custom"]).random()).toLowerCase().toCapitalize();
 
       // Status state name

@@ -1,4 +1,4 @@
-const EmbedData = {
+export default {
   update: "no updates",
   footer: {
     footerIcon: "https://cdn.discordapp.com/avatars/865630940361785345/d0c85fbbdb0ee9f105336a041904e7d8.png?size=4096",
@@ -41,9 +41,7 @@ const EmbedData = {
     globe: "🌐",
     prohibited: "🚫"
   }
-}
-
-export default EmbedData;
+} as const;
 /**
  * @copyright
  * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA

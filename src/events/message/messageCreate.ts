@@ -79,7 +79,9 @@ export default async (client: DiscordClient, message: Message) => {
             await db.add("totalCommandsUsed", 1);
             return await command.run(client, message, args);
         }
-    } catch (e: any) {
+    }
+
+    catch (e) {
         error(e);
     }
 }

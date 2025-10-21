@@ -40,6 +40,7 @@ export default async function (
       const perms = new PermissionsBitField(
         command.data.default_bot_permissions
       );
+
       if (getSubcommandOptions && getSubcommandOptions.default_bot_permissions)
         perms.add(getSubcommandOptions.default_bot_permissions);
 
@@ -70,6 +71,7 @@ export default async function (
       const perms = new PermissionsBitField(
         command.data.default_member_permissions
       );
+
       if (getSubcommandOptions && getSubcommandOptions.default_member_permissions)
         perms.add(getSubcommandOptions.default_member_permissions);
 
@@ -95,7 +97,9 @@ export default async function (
     }
 
     return false;
-  } catch (e: any) {
+  }
+
+  catch (e) {
     error(e);
   }
 }

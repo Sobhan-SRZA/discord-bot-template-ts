@@ -11,7 +11,9 @@ export default async (client: DiscordClient) => {
             await loadCommand(`${process.cwd()}/dist/src/commands`, type, client.commands);
             post(`${client.commands.filter(a => a[type]).size}`.cyan + ` ${type.replace("only_", "").toCapitalize()} Commands Is Loaded!!`.green, "S");
         });
-    } catch (e: any) {
+    }
+
+    catch (e) {
         error(e)
     }
 };
@@ -42,7 +44,9 @@ async function loadCommand(dirname: string, type: "only_slash" | "only_message",
 
         };
 
-    } catch (e: any) {
+    }
+
+    catch (e) {
         error(e)
     }
 }

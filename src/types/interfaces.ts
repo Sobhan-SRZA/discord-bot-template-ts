@@ -34,7 +34,7 @@ export interface CommandOption {
     type: ApplicationCommandOptionType;
     channel_types?: ChannelType[];
     required?: boolean;
-options?: CommandOptions;
+    options?: CommandOptions;
     autocomplete?: boolean;
     choices?: Array<{ name: string, value: string }>;
     default_member_permissions?: PermissionsBitField;

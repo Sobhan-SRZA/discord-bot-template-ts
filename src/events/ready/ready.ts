@@ -30,7 +30,9 @@ export default async (client: DiscordClient) => {
           Routes.applicationCommands(client.user!.id)
         ) as any;
         post(`${String(deleted?.length).cyan} (/) commands successfully deleted.`.red, "S");
-      } catch (e: any) {
+      }
+
+      catch (e) {
         post("Failed to delete (/) commands.".red, "E", "red", "red");
         error(e);
       }
@@ -42,7 +44,9 @@ export default async (client: DiscordClient) => {
         { body: commands }
       ) as any;
       post(`${String(created?.length).cyan} (/) commands successfully created.`.green, "S");
-    } catch (e: any) {
+    }
+
+    catch (e) {
       post("Failed to create (/) commands.".red, "E", "red", "red");
       error(e);
     }
@@ -113,7 +117,9 @@ export default async (client: DiscordClient) => {
 
       })
     );
-  } catch (e: any) {
+  }
+
+  catch (e) {
     error(e);
   }
 };

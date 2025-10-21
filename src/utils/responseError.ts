@@ -55,7 +55,9 @@ export default async function (
       else
         return await repeatAction(async () => await interaction.reply(data as MessageReplyOptions));
 
-  } catch (e: any) {
+  }
+
+  catch (e) {
     error(e);
   }
 }

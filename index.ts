@@ -36,15 +36,11 @@ import {
 } from "fs";
 import { PackageJson } from "./src/types/interfaces";
 import DiscordClient from "./src/models/Client";
-import * as dotenv from "dotenv";
 import error from "./src/utils/error";
 import post from "./src/functions/post";
 
 // Add color to console messages.
 import "colors";
-
-// Support .env args
-dotenv.config();
 
 // Adding "toCapitalize" method to String class. | ts type is in ./src/types/global.d.ts
 String.prototype.toCapitalize = function (): string {
@@ -102,7 +98,7 @@ const main = async () => {
         if (client.token)
             await client
                 .login(client.token)
-                .catch((e: any) => {
+                .catch((e) => {
                     post("The Bot Token You Entered Into Your Project Is Incorrect Or Your Bot's INTENTS Are OFF!!", "E", "red", "red");
                     error(e);
                 });
@@ -110,7 +106,9 @@ const main = async () => {
         else
             post("Please Write Your Bot Token Opposite The Token In The config.js File In Your Project!!", "E", "red", "red");
 
-    } catch (e: any) {
+    }
+
+    catch (e) {
         error(e);
         await client.destroy();
         process.exit(1);
@@ -120,10 +118,10 @@ void main();
 
 // Load Anti Crash
 if (client.config.source.anti_crash) {
-    process.on("unhandledRejection", (e: any) => error(e));
-    process.on("rejectionHandled", (e: any) => error(e));
-    process.on("uncaughtException", (e: any) => error(e));
-    process.on("uncaughtExceptionMonitor", (e: any) => error(e));
+    process.on("unhandledRejection", (e) => error(e));
+    process.on("rejectionHandled", (e) => error(e));
+    process.on("uncaughtException", (e) => error(e));
+    process.on("uncaughtExceptionMonitor", (e) => error(e));
 }
 
 // Export client

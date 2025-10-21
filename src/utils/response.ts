@@ -12,13 +12,15 @@ export default async function (interaction: Respondable, data: InteractionReplyO
   try {
     if (isBaseInteraction(interaction)) {
       if ("editReply" in interaction)
-        return await repeatAction(async () =>  await interaction.editReply(data as InteractionEditReplyOptions));
+        return await repeatAction(async () => await interaction.editReply(data as InteractionEditReplyOptions));
     }
 
     else
-      return await repeatAction(async () =>  await interaction.reply(data as MessageReplyOptions));
+      return await repeatAction(async () => await interaction.reply(data as MessageReplyOptions));
 
-  } catch (e: any) {
+  }
+
+  catch (e) {
     error(e);
   }
 }

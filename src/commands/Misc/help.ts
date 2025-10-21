@@ -90,7 +90,9 @@ export default {
 
         return description;
       }
-    } catch (e: any) {
+    }
+
+    catch (e) {
       error(e)
     }
   }

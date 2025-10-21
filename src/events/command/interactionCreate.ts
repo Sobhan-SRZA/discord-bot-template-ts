@@ -43,7 +43,7 @@ export default async (client: DiscordClient, interaction: Interaction) => {
           option.name === "ephemeral" ||
           (option.type === 1 && option.options?.some(subOption => subOption.name === "ephemeral"))
         );
-        if (hasEphemeralOption) 
+        if (hasEphemeralOption)
           await repeatAction(async () => {
             return await interaction.deferReply({
               flags: MessageFlags.Ephemeral,
@@ -55,7 +55,9 @@ export default async (client: DiscordClient, interaction: Interaction) => {
         return await command.run(client, interaction);
       }
     }
-  } catch (e: any) {
+  }
+
+  catch (e) {
     error(e);
   }
 }

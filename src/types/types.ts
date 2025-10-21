@@ -1,9 +1,9 @@
 import {
- BaseInteraction,
- CommandInteraction,
- Message,
- MessageComponentInteraction,
- ModalSubmitInteraction
+    BaseInteraction,
+    CommandInteraction,
+    Message,
+    MessageComponentInteraction,
+    ModalSubmitInteraction
 } from "discord.js";
 import { CommandOption } from "./interfaces";
 
@@ -12,11 +12,11 @@ export type CommandOptions = CommandOption[] | [];
 export type Categoris = "member" | "admin" | "music" | "owner" | "nsfw" | "moderate" | "ticket" | "giveaway" | "api" | "image";
 
 export type Respondable =
- | CommandInteraction
- | MessageComponentInteraction
- | ModalSubmitInteraction
- | BaseInteraction
- | Message;
+    | CommandInteraction
+    | MessageComponentInteraction
+    | ModalSubmitInteraction
+    | BaseInteraction
+    | Message;
 /**
  * @copyright
  * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA

@@ -43,6 +43,7 @@ export default async function ({
     try {
       owner = await guild.fetchOwner() || (await (await guild.fetch()).fetchOwner());
     } catch { }
+
     const guildCreatedAt = Date.parse(guild.createdAt.toString()) / 1000;
     const embed = new EmbedBuilder()
       .setDescription(description.replace("{guilds}", await client.guilds.cache.size.toLocaleString()))
@@ -86,7 +87,9 @@ export default async function ({
 
     messageData.embeds = [embed];
     return await channel!.send(messageData);
-  } catch (e: any) {
+  }
+
+  catch (e) {
     error(e)
   }
 }

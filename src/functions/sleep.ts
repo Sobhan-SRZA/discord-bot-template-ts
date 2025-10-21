@@ -1,16 +1,8 @@
-import {
-  CommandInteraction,
-  Message
-} from "discord.js";
-import error from "./error";
+import error from "../utils/error";
 
-export default function (interaction: CommandInteraction | Message) {
+export default function (ms: number) {
   try {
-    if (interaction instanceof CommandInteraction)
-      return interaction.user;
-
-    else
-      return interaction.author;
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   catch (e) {

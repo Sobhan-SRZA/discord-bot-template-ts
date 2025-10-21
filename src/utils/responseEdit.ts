@@ -7,8 +7,10 @@ import error from "./error";
 
 export default async function (message: Message, data: MessageEditOptions) {
   try {
-      return await repeatAction(async () => await message.edit(data));
-  } catch (e: any) {
+    return await repeatAction(async () => await message.edit(data));
+  }
+
+  catch (e) {
     error(e);
   }
 }

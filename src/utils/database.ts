@@ -42,9 +42,11 @@ export default async () => {
             `Database Is Successfully Activated!! (Type: ${config.source.database.type.toLocaleUpperCase()})`,
             "S"
         );
-        
+
         return db;
-    } catch (e: any) {
+    }
+
+    catch (e) {
         post(`Database Doesn't Work!!`.red, "E", "red", "red")
         error(e);
     }

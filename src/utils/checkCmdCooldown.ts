@@ -62,7 +62,9 @@ export default async function (
     setTimeout(() => timestamps.delete(userId), cooldownAmount);
 
     return false;
-  } catch (e: any) {
+  }
+
+  catch (e) {
     error(e);
   }
 }

@@ -4,7 +4,6 @@
         "outDir": "dist",
         "module": "commonjs",
         "target": "es2024",
-        "moduleResolution": "node",
         "resolveJsonModule": true,
         "useUnknownInCatchVariables": true,
         "allowUnreachableCode": false,

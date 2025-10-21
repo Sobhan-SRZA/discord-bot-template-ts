@@ -1,15 +1,27 @@
+import sleep from "../functions/sleep";
 import error from "./error";
 
-export default async function <T>(action: () => Promise<T>, maxAttempts = 3): Promise<T | undefined> {
+export default async function <T>(
+  action: () => Promise<T>,
+  maxAttempts = 3,
+  delayMs = 3_000 // 3 seconds
+): Promise<T | undefined> {
   let attempts = 0;
 
   while (attempts < maxAttempts) {
     try {
-      return await action();
-    } catch (e: any) {
+      const result = await action();
+
+      return result;
+    }
+
+    catch (e) {
       attempts++;
       if (attempts === maxAttempts)
         error(e);
+
+      else
+        await sleep(delayMs);
     }
   }
 }

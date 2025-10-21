@@ -21,7 +21,9 @@ export default async function (
       return;
     }
 
-  } catch (e: any) {
+  }
+
+  catch (e) {
     error(e);
   }
 }

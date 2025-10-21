@@ -7,6 +7,7 @@ export default async (client: DiscordClient) => {
   const path = `${process.cwd()}/dist/src/events`;
   for (const dirs of readdirSync(path)) {
     const events = readdirSync(`${path}/${dirs}`).filter(files => files.endsWith(".js"));
+
     for (const file of events) {
       const eventModule = await import(`${path}/${dirs}/${file}`);
       const event = eventModule.default || eventModule;

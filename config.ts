@@ -1,3 +1,8 @@
+import * as dotenv from "dotenv";
+
+// Support .env args
+dotenv.config();
+
 export default {
     api: {
         example: {
@@ -58,7 +63,7 @@ export default {
             owners: JSON.parse(process.env.owners || "[]") || [] // Source owners.
         }
     }
-};
+} as const;
 /**
  * @copyright
  * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA

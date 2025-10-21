@@ -8,18 +8,13 @@ import EmbedData from "../storage/embed";
 import config from "../../config";
 import post from "../functions/post";
 
-interface ErrorType {
-  message: string;
-  stack?: string;
-  name?: string;
-  code?: number;
-  status?: string;
-}
-
-export default function (error: ErrorType | string) {
+export default function (err: unknown) {
   try {
-    if (typeof error === "string")
-      error = { message: error };
+    // Sure we have always error
+    const error =
+      err instanceof Error
+        ? err
+        : new Error(typeof err === "string" ? err : JSON.stringify(err));
 
     if (config.source.logger && config.discord.support.webhook.url) {
       const
@@ -57,22 +52,22 @@ export default function (error: ErrorType | string) {
             ]
           );
 
-      if (error.code)
+      if ((error as any).code)
         embed.addFields(
           [
             {
               name: `${EmbedData.emotes.prohibited}| Code:`,
-              value: `${error.code}`
+              value: `${(error as any).code}`
             }
           ]
         );
 
-      if (error.status)
+      if ((error as any).status)
         embed.addFields(
           [
             {
               name: `${EmbedData.emotes.globe}| httpStatus:`,
-              value: `${error.status}`
+              value: `${(error as any).status}`
             }
           ]
         );
@@ -86,10 +81,10 @@ export default function (error: ErrorType | string) {
         ]
       );
       if (error.stack && error.stack.length > 4087) {
-        data.content = `**${EmbedData.emotes.entry}| Name: \`${error.name}\`${error.code ?
-          `\n${EmbedData.emotes.prohibited}| Code: \`${error.code}\`` : ""
-          }${error.status ?
-            `\n${EmbedData.emotes.globe}| httpStatus: \`${error.status}\`` : ""
+        data.content = `**${EmbedData.emotes.entry}| Name: \`${error.name}\`${(error as any).code ?
+          `\n${EmbedData.emotes.prohibited}| Code: \`${(error as any).code}\`` : ""
+          }${(error as any).status ?
+            `\n${EmbedData.emotes.globe}| httpStatus: \`${(error as any).status}\`` : ""
           }\n${EmbedData.emotes.clock}| Timestamp: <t:${date}:D> | <t:${date}:R>**`;
 
         data.files = [
@@ -113,11 +108,14 @@ export default function (error: ErrorType | string) {
     else
       console.log(error);
 
-  } catch (e) {
+  }
+
+  catch (e) {
     post("Error logger to discord webhook have bug!!", "E", "red", "red");
     console.log(e);
+
     post("Main Error:", "E", "red", "red");
-    console.log(error);
+    console.log(err);
   }
 }
 /**

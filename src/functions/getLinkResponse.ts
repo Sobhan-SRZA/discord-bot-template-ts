@@ -16,9 +16,11 @@ export default async function (url: string, endpoint?: string): Promise<any> {
         Authorization: "Basic MDE1NDQ1NTM1NDU0NDU1MzU0RDY6"
       }
     }).then(res => res.json());
-    
+
     return data;
-  } catch (e) {
+  }
+
+  catch (e) {
     console.error(e)
   }
 }

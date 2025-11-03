@@ -1,7 +1,7 @@
-dist
-node_modules
-.env
-package-lock.json
-quickdb.json
-*.zip
-*.rar
+/dist
+/node_modules
+/.*
+/package-lock.json
+/quickdb.json
+/*.zip
+/*.rar

@@ -36,6 +36,16 @@ declare global {
          * Retunr random item from array.
          */
         random(): T;
+
+        /**
+         * @param size What size you want make an array chunk?
+         * @description
+         * Make a chunk about your array.
+         * 
+         * @example
+         * [1, 2, 3, 4].chunk(2) => [[1,2], [3,4]]
+         */
+        chunk(size: number): T[][]
     }
 
     interface String {
@@ -47,7 +57,7 @@ declare global {
          * ```
          * @param object - any item you want to replace it.
          */
-        replaceValues(object: Record<string, any>): string;
+        replaceValues(object: Record<string, string>): string;
 
 
         /**
@@ -59,6 +69,11 @@ declare global {
          * Change hex color code string to the hex decimal number. 
          */
         HexToNumber(): number;
+
+        /**
+         * Convert english numbers in text to persian. 
+         */
+        convertToPersianString(): string;
     }
 }
 /**

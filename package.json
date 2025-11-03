@@ -1,7 +1,7 @@
 {
   "name": "discord-bot-template-ts",
   "version": "1.0.0",
-  "description": "A discord template source for myself handlers.",
+  "description": "This is a production-ready, modular, and extensible Discord bot template written in TypeScript using Discord.js v14.",
   "author": "Sobhan-SRZA (mr.sinre)",
   "main": "dist/index.js",
   "license": "BSD-3-Clause",
@@ -19,14 +19,13 @@
   },
   "homepage": "https://github.com/Sobhan-SRZA/discord-bot-template-ts#readme",
   "devDependencies": {
-    "@types/node": "^22.5.0",
-    "typescript": "^5.5.4"
+    "@types/node": "^22.19.0",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "colors": "^1.4.0",
-    "discord.js": "^14.21.0",
-    "dotenv": "^16.5.0",
-    "quick.db": "^9.1.7",
-    "write-file-atomic": "^6.0.0"
+    "discord.js": "^14.24.2",
+    "dotenv": "^16.6.1",
+    "quick.db": "^9.1.7"
   }
 }

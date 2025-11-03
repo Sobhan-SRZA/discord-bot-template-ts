@@ -8,13 +8,10 @@ import EmbedData from "../storage/embed";
 import config from "../../config";
 import post from "../functions/post";
 
-export default function (err: unknown) {
+export default function error(error: any) {
   try {
-    // Sure we have always error
-    const error =
-      err instanceof Error
-        ? err
-        : new Error(typeof err === "string" ? err : JSON.stringify(err));
+    if (!("message" in error))
+      error = new Error(error);
 
     if (config.source.logger && config.discord.support.webhook.url) {
       const
@@ -115,7 +112,7 @@ export default function (err: unknown) {
     console.log(e);
 
     post("Main Error:", "E", "red", "red");
-    console.log(err);
+    console.log(error);
   }
 }
 /**
